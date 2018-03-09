@@ -15,7 +15,7 @@ class App extends Component {
           <button className="btn btn-primary" onClick={this.revert}>Revert</button>
         </div>
         <div>
-          <ArticleList articles={this.state.reverted ? articles.reverse() : articles} />
+          <ArticleList articles={this.state.reverted ? articles.slice().reverse() : articles} />
         </div>
       </div>
     );

@@ -31,6 +31,7 @@ class Articles extends PureComponent {
   }
 
   render() {
+    console.log('2', this.state);
     const { articles } = this.props;
     const body = this.state.isOpen && <section className="card-text">{articles.body}</section>;
     return (
@@ -54,7 +55,10 @@ class Articles extends PureComponent {
     });
   };
   titleCounter = () => {
-    this.setState({ count: this.state.count + 1 });
+    console.log('1');
+    this.setState({
+      count: this.state.count + 1
+    });
   };
 }
 export default Articles;
