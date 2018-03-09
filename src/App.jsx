@@ -4,16 +4,26 @@ import 'bootstrap/dist/css/bootstrap.css';
 import articles from './fake.json';
 
 class App extends Component {
+  state = {
+    reverted: false,
+  };
   render() {
-    return <div className="container">
+    return (
+      <div className="container">
         <div className="jumbotron">
           <div className="display-3">App Name</div>
+          <button className="btn btn-primary" onClick={this.revert}>Revert</button>
         </div>
         <div>
-          <ArticleList articles={articles} />
+          <ArticleList articles={this.state.reverted ? articles.reverse() : articles} />
         </div>
-      </div>;
+      </div>
+    );
   }
+  revert = () =>
+    this.setState({
+      reverted: !this.state.reverted,
+    });
 }
 
 export default App;
