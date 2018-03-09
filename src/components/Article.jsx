@@ -6,21 +6,19 @@ class Articles extends Component {
   };
   render() {
     const { articles } = this.props;
-    const body = this.state.isOpen && <section>{articles.body}</section>;
-    const title = this.state.isOpen && <h1>{articles.title}</h1>;
+    const body = this.state.isOpen && <section className="card-text">{articles.body}</section>;
+    const title = this.state.isOpen && <h3>{articles.title}</h3>;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col">{title}</div>
-        </div>
-        <div className="row">
-          <div className="col">{body}</div>
-        </div>
-        <div className="row">
+      <div className="card mx-auto" style={{ width: '50%' }}>
+        <div className="card-header">
           <div className="col">
-            <button onClick={this.handleClick}>Get data</button>
+            {title}
+            <button className="btn btn-primary btn-lg float-right" onClick={this.handleClick}>
+              Hide
+            </button>
           </div>
         </div>
+        <div className="card-body">{body}</div>
       </div>
     );
   }
