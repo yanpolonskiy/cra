@@ -1,15 +1,13 @@
 import React from 'react';
-import './Person.css';
+import styles from './Person.css';
 
 const person = props => {
-  return (
-    <div className="Person">
+  return <div className={styles.Person}>
       <h1 onClick={props.click}>Hello i am {props.name}</h1>
       <h2>My age is {props.age}</h2>
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
-    </div>
-  );
+    </div>;
 };
 
 export default person;

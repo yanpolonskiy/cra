@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import styles from './App.css';
 import Person from './components/Person/Person.jsx';
 
 class App extends Component {
@@ -39,24 +39,10 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      font: 'inherit',
-      border: '1px solid #bbb',
-      padding: '1rem',
-      cursor: 'pointer',
-      borderRadius: '3px',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: '#fff',
-      },
-    };
-
     let persons = null;
+    let btnClass = null;
 
     if (this.state.showPersons) {
-      style.backgroundColor = 'red';
-      style[':hover'] = { backgroundColor: 'salmon', color: '#000' };
       persons = (
         <div>
           {this.state.persons.map((person, i) => (
@@ -70,22 +56,23 @@ class App extends Component {
           ))}
         </div>
       );
+      btnClass = styles.Red;
     }
 
     const classes = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      classes.push(styles.red);
     }
 
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      classes.push(styles.bold);
     }
     return (
-      <div className="App">
+      <div className={styles.App}>
         <h1>Hi this is a React app</h1>
         <p className={classes.join(' ')}>This is really working!</p>
-        <button style={style} onClick={this.toggleShowPersonsHandler}>
+        <button className={btnClass} onClick={this.toggleShowPersonsHandler}>
           Click me!
         </button>
         {persons}
