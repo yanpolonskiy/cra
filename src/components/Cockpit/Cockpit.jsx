@@ -18,7 +18,7 @@ const cockpit = props => {
     classes.push(styles.bold);
   }
   return (
-    <div className={classes.Cockpit}>
+    <div className={styles.Cockpit}>
       <h1>Hi this is a React app</h1>
       <p className={classes.join(' ')}>This is really working!</p>
       <button className={btnClass} onClick={props.clicked}>
