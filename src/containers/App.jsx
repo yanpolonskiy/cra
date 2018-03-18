@@ -4,15 +4,36 @@ import Persons from '../components/Persons/Persons.jsx';
 import Cockpit from '../components/Cockpit/Cockpit.jsx';
 
 class App extends Component {
-  state = {
-    persons: [
-      { name: 'Sergey', age: 25, hobbies: 'football', id: 'jqwej1jzxc' },
-      { name: 'John', age: 22, hobbies: 'music', id: 'jqw419032czxj' },
-      { name: 'Sophie', age: 29, hobbies: 'painting', id: 'zxcnk2138fc' },
-    ],
-    otherState: 'Some other value',
-    showPersons: false,
-  };
+  constructor(props) {
+    super(props);
+    console.log('App.js insinde constructor', props);
+    this.state = {
+      persons: [
+        { name: 'Sergey', age: 25, hobbies: 'football', id: 'jqwej1jzxc' },
+        { name: 'John', age: 22, hobbies: 'music', id: 'jqw419032czxj' },
+        { name: 'Sophie', age: 29, hobbies: 'painting', id: 'zxcnk2138fc' },
+      ],
+      otherState: 'Some other value',
+      showPersons: false,
+    };
+  } 
+
+  componentWillMount() {
+    console.log('App.js component will mount', this.props);
+  }
+  componentDidMount() {
+    console.log('App.js component did mount', this.props);
+  }
+
+  // state = {
+  //   persons: [
+  //     { name: 'Sergey', age: 25, hobbies: 'football', id: 'jqwej1jzxc' },
+  //     { name: 'John', age: 22, hobbies: 'music', id: 'jqw419032czxj' },
+  //     { name: 'Sophie', age: 29, hobbies: 'painting', id: 'zxcnk2138fc' },
+  //   ],
+  //   otherState: 'Some other value',
+  //   showPersons: false,
+  // };
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(person => person.id === id);
