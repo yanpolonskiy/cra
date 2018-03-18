@@ -2,10 +2,6 @@ import React from 'react';
 import styles from './Person.css';
 
 const person = props => {
-  const rnd = Math.random();
-  if (rnd > 0.7) {
-    throw new Error('Something bad happened');
-  }
   return (
     <div className={styles.Person}>
       <h1 onClick={props.click}>Hello i am {props.name}</h1>
