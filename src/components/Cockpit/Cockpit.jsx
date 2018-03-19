@@ -1,4 +1,5 @@
 import React from 'react';
+import Aux from '../Hoc/Aux.jsx';
 import styles from './Cockpit.css';
 
 const cockpit = props => {
@@ -18,13 +19,13 @@ const cockpit = props => {
     classes.push(styles.bold);
   }
   return (
-    <div>
+    <Aux>
       <h1>Hi this is a React app</h1>
       <p className={classes.join(' ')}>This is really working!</p>
       <button className={btnClass} onClick={props.clicked}>
         Click me!
       </button>
-    </div>
+    </Aux>
   );
 };
 
