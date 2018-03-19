@@ -16,24 +16,28 @@ class App extends Component {
       otherState: 'Some other value',
       showPersons: false,
     };
-  } 
+  }
 
   componentWillMount() {
     console.log('App.js component will mount', this.props);
   }
+
   componentDidMount() {
     console.log('App.js component did mount', this.props);
   }
 
-  // state = {
-  //   persons: [
-  //     { name: 'Sergey', age: 25, hobbies: 'football', id: 'jqwej1jzxc' },
-  //     { name: 'John', age: 22, hobbies: 'music', id: 'jqw419032czxj' },
-  //     { name: 'Sophie', age: 29, hobbies: 'painting', id: 'zxcnk2138fc' },
-  //   ],
-  //   otherState: 'Some other value',
-  //   showPersons: false,
-  // };
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Update App.js inside shouldComponentUpdate', nextProps, nextState);
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Update App.js inside componentWillUpdate', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('Update App.js inside componentDidUpdate');
+  }
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(person => person.id === id);
