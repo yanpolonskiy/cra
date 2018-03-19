@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons.jsx';
 import Cockpit from '../components/Cockpit/Cockpit.jsx';
-import WithClass from '../components/Hoc/WithClass.jsx';
+// import WithClass from '../components/Hoc/WithClass.jsx';
+import Aux from '../components/Hoc/Aux.jsx';
+import withClass from '../components/Hoc/withClass.jsx';
 
 class App extends PureComponent {
   constructor(props) {
@@ -26,14 +28,6 @@ class App extends PureComponent {
   componentDidMount() {
     console.log('App.js component did mount', this.props);
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('Update App.js inside shouldComponentUpdate', nextProps, nextState);
-  //   // return true;
-  //   return (
-  //     nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons
-  //   );
-  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log('Update App.js inside componentWillUpdate', nextProps, nextState);
@@ -82,7 +76,7 @@ class App extends PureComponent {
     }
 
     return (
-      <WithClass classes={styles.App}>
+      <Aux>
         <button onClick={() => this.setState({ showPersons: true })}>Show persons</button>
         <Cockpit
           clicked={this.toggleShowPersonsHandler}
@@ -90,9 +84,9 @@ class App extends PureComponent {
           showPersons={this.state.showPersons}
         />
         {persons}
-      </WithClass>
+      </Aux>
     );
   }
 }
 
-export default App;
+export default withClass(App, styles.App);
