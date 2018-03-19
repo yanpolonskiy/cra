@@ -4,10 +4,10 @@ import styles from './Cockpit.css';
 const cockpit = props => {
   const classes = [];
 
-  let btnClass = null;
+  let btnClass = styles.Button;
 
   if (props.showPersons) {
-    btnClass = styles.Red;
+    btnClass = [styles.Button, styles.Red].join(' ');
   }
 
   if (props.persons.length <= 2) {
@@ -18,7 +18,7 @@ const cockpit = props => {
     classes.push(styles.bold);
   }
   return (
-    <div className={styles.Cockpit}>
+    <div>
       <h1>Hi this is a React app</h1>
       <p className={classes.join(' ')}>This is really working!</p>
       <button className={btnClass} onClick={props.clicked}>
