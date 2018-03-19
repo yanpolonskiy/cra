@@ -50,6 +50,7 @@ class App extends PureComponent {
   };
 
   toggleShowPersonsHandler = () => {
+    // better approach to use setState as a functions because its asynchronous operation
     const doesShow = this.state.showPersons;
     this.setState((prevState, props) => ({
       showPersons: !doesShow,
