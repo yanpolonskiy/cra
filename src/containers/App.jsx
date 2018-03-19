@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons.jsx';
 import Cockpit from '../components/Cockpit/Cockpit.jsx';
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('App.js insinde constructor', props);
@@ -26,10 +26,13 @@ class App extends Component {
     console.log('App.js component did mount', this.props);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('Update App.js inside shouldComponentUpdate', nextProps, nextState);
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log('Update App.js inside shouldComponentUpdate', nextProps, nextState);
+  //   // return true;
+  //   return (
+  //     nextState.persons !== this.state.persons || nextState.showPersons !== this.state.showPersons
+  //   );
+  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log('Update App.js inside componentWillUpdate', nextProps, nextState);
@@ -79,6 +82,13 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
+        <button
+          onClick={() => {
+            this.setState({ showPersons: true });
+          }}
+        >
+          Show persons
+        </button>
         <Cockpit
           clicked={this.toggleShowPersonsHandler}
           persons={this.state.persons}
