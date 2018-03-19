@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons.jsx';
 import Cockpit from '../components/Cockpit/Cockpit.jsx';
-// import WithClass from '../components/Hoc/WithClass.jsx';
 import Aux from '../components/Hoc/Aux.jsx';
 import withClass from '../components/Hoc/withClass.jsx';
 
@@ -18,6 +17,7 @@ class App extends PureComponent {
       ],
       otherState: 'Some other value',
       showPersons: false,
+      toggleClickCounter: 0,
     };
   }
 
@@ -51,9 +51,10 @@ class App extends PureComponent {
 
   toggleShowPersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({
+    this.setState((prevState, props) => ({
       showPersons: !doesShow,
-    });
+      toggleClickCounter: prevState.toggleClickCounter + 1,
+    }));
   };
 
   deletePersonHandler = i => {
