@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PureComponent } from 'react';
 import Person from '../Person/Person.jsx';
 
@@ -17,16 +19,6 @@ class Persons extends PureComponent {
   componentWillReceiveProps(nextProps) {
     console.log('UPDATE Persons.js inside component willRecieveProps', nextProps);
   }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('Update persons.js inside shouldComponentUpdate', nextProps, nextState);
-  //   return (
-  //     nextProps.persons !== this.props.persons ||
-  //     nextProps.changed !== this.props.changed ||
-  //     nextProps.clicked !== this.props.clicked
-  //   );
-  //   // return true
-  // }
 
   componentWillUpdate(nextProps, nextState) {
     console.log('Update Persons.js inside componentWillUpdate', nextProps, nextState);
