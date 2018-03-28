@@ -1,5 +1,3 @@
-// @flow
-
 import React, { PureComponent } from 'react';
 import Person from '../Person/Person.jsx';
 
