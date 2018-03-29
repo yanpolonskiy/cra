@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Layout from './Layout/Layout.jsx';
+import Layout from '../components/Layout/Layout.jsx';
+import BurgerBuilder from './BurgerBuilder/BurgerBuilder.jsx';
 import Aux from '../hoc/Aux.jsx';
 
 class App extends Component {
@@ -7,7 +8,7 @@ class App extends Component {
     return (
       <Aux>
         <Layout>
-          <p>Test</p>
+          <BurgerBuilder />
         </Layout>
       </Aux>
     );
